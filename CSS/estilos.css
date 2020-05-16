@@ -13,7 +13,6 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     color:whitesmoke;
-    z-index: 1;
   }
 
 /* tamanho minimo de tela 400 px - breakpoint*/
@@ -26,6 +25,8 @@ body {
 /* tamanho minimo de tela 600 px - breakpoint*/
 @media (min-width: 600px) {
   body {
+    background-attachment: fixed;
+    background-size: cover;
     font-size: 18px;
   }
 }
@@ -42,9 +43,15 @@ header {
     position: fixed;
     width: 100vw;
     top: 0;
-
+    z-index: 1;
    
   }
+
+  .menu ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  
   .menu li {
     list-style: none;
   }
@@ -54,12 +61,16 @@ header {
      justify-content: space-around;
   }
   
+  .menu li {
+    list-style: none; 
+   }
+   
   .menu a {
     display: block;
     padding: 10px 20px;
     transition: background-color 2s, color 3s;
   }
-
+  .menu a:active,
   .menu a:hover {
     background-color: black;
     color: white;
@@ -76,16 +87,14 @@ header {
   .titulo {
     transform: scale(0.2) translateY(50mvh);
     opacity: 0;
-    animation: 1s linear 3s animacaoTitulo forwards;
+    animation: linear 3s animacaoTitulo forwards;
   }
   
   @keyframes animacaoTitulo {
     0% {
-      transform: scale(0.5) translatey(0) ;
-      opacity: 0;
+      opacity: 0.3;
     }
     100% {
-      transform: scale(1) translatey(0) ;
       opacity: 1;
     }
   }
@@ -96,6 +105,7 @@ header {
     text-align: center;
   }
 
+  .sobre,
   .contato,
   .portfolio {
     background-color: black;
@@ -114,12 +124,35 @@ header {
     line-height: 1.8em;
   }
 
+  .sobre h2,
   .contato h2,
   .portfolio h2 {
     color: whitesmoke;
     font-family: 'Roboto Slab', serif;
     margin-bottom: 1.5em;
     font-size: 2.5em;
+  }
+  .sobre p {
+    color: whitesmoke;
+    text-indent: 1.4em;
+    margin-bottom: 1.4em;
+    text-align: justify;
+  }
+
+  
+  .sobre a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .sobre .avatar {
+    margin-left: 2em;
+  }
+
+  @media (min-width: 600px) {
+    .sobre .avatar {
+      float: right;
+    }
   }
 
   .portfolio .grid {
@@ -162,12 +195,12 @@ header {
     transform: scale(1.2);
   }
 
-  .contato .icon {
+  .contato .icons {
     text-align: center;
   }
   .contato a {
     color: whitesmoke;
-    font-size:4em;
+    font-size:3em;
     transition: text-shadow 500ms;
   }
 
