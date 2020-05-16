@@ -1,12 +1,49 @@
+/* soft reset do CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: #4499ff;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-fa1GFWF3gXhj99M8E3tmuy5oG5WnupWWciHLGQdbiPIGfbGi&usqp=CAU');
+    background: black;
+    background-image: url('../img/fundot.jpg');
     background-size: auto 100vh;
     height: 100vh;
-    font-family: Arial;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color:whitesmoke;
+    z-index: 1;
   }
+
+/* tamanho minimo de tela 400 px - breakpoint*/
+@media (min-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* tamanho minimo de tela 600 px - breakpoint*/
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+
+header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   .menu {
     background-color: white;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+
+   
   }
   .menu li {
     list-style: none;
@@ -17,18 +54,127 @@ body {
      justify-content: space-around;
   }
   
+  .menu a {
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 2s, color 3s;
+  }
+
+  .menu a:hover {
+    background-color: black;
+    color: white;
+  }
+
   a {
-    color: black;
+    color:black;
     text-decoration: none;
   }
   a:hover {
     text-decoration: underline;
   }
+
+  .titulo {
+    transform: scale(0.2) translateY(50mvh);
+    opacity: 0;
+    animation: 1s linear 3s animacaoTitulo forwards;
+  }
+  
+  @keyframes animacaoTitulo {
+    0% {
+      transform: scale(0.5) translatey(0) ;
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translatey(0) ;
+      opacity: 1;
+    }
+  }
+
   .site-subtitle,
   .site-title {
-    color: whitesmoke;
+    color:whitesmoke;
     text-align: center;
   }
+
+  .contato,
+  .portfolio {
+    background-color: black;
+    padding: 2em;
+    min-height: 100vh;
+  }
+
+  .site-title {
+    font-size: 4em;
+    font-family: 'Roboto', sans-serif;
+  }
+
   .site-subtitle {
     font-style: italic;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.8em;
   }
+
+  .contato h2,
+  .portfolio h2 {
+    color: whitesmoke;
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 1.5em;
+    font-size: 2.5em;
+  }
+
+  .portfolio .grid {
+    display: grid;
+    gap: 2em;
+  }
+
+  @media (min-width: 560px) {
+    .portfolio .grid {
+      grid-template-columns: 240px 240px;
+    }
+  }
+
+  @media (min-width: 880px) {
+    .portfolio .grid {
+      grid-template-columns: repeat(3, 260px);
+      align-content: center;
+      justify-content: center;
+      height: calc(100vh - 8em - 48px)
+    }
+  }
+  @media (min-width: 1200px) {
+    .img-portfolio {
+      height:260px;
+      width: 260px;
+    }
+  }
+  .portfolio figure {
+    text-align: center;
+  }
+
+  .img-portfolio {
+    height:200px;
+    width: 200px;
+    object-fit: cover;
+    transition: transform 500ms;
+  }
+
+  .img-portfolio:hover{
+    transform: scale(1.2);
+  }
+
+  .contato .icon {
+    text-align: center;
+  }
+  .contato a {
+    color: whitesmoke;
+    font-size:4em;
+    transition: text-shadow 500ms;
+  }
+
+  .contato a:active,
+  .contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 10px rgb(6, 250, 217);
+  }
+
+
